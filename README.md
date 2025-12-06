@@ -13,7 +13,7 @@ El diseño del end efector se basara en la herramienta "CUCHARETA" que es usada 
 el corte de las manos de maduro de los racimos. Imagen de la herramienta original:
 
 <div align="center">
-  <img src="image.png" alt="Herramienta Cuchareta" width="500"/>
+  <img src="image-1.png" alt="Herramienta Cuchareta" width="500"/>
 </div>
 
 #  Desarrolladores: Anthony
