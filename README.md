@@ -11,7 +11,9 @@ cortada en una **zona de recolección**
 
 El diseño del end efector se basara en la herramienta "CUCHARETA" que es usada para
 el corte de las manos de maduro de los racimos. Imagen de la herramienta original:
-![alt text](image.png)
 
+<div align="center">
+  <img src="image.png" alt="Herramienta Cuchareta" width="500"/>
+</div>
 
 #  Desarrolladores: Anthony
