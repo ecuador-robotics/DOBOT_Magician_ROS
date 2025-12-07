@@ -30,12 +30,3 @@ Este proyecto busca desarrollar un sistema robotico que permita automatizar el c
 ### Sistema
 El DOBOT Magician contará con una cámara para localizar y reconocer cada mano de banano. Luego de identificar las manos del racimo el robot se encargará de cortar las manos de banano y colocarlas en una zona de recolección. Estos dos procesos se realizarán mediante un efector final diseñado desde cero para este proyecto. 
 
-
-```mermaid
-graph LR
-    Camara -->|openCV| Detección
-    Detección -->|posiciones| DOBOT-Magician
-    DOBOT-Magician --> Cortador
-    Cortador --> Recolección
-```
-
