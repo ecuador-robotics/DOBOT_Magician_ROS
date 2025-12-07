@@ -1,6 +1,7 @@
 <div align="center">
 
-# DOBOT Magician ROS
+# BAC Robot 
+Banana Automatic Cutter Robot
 
 ![Static Badge](https://img.shields.io/badge/misión-Automatizar%20el%20corte%20de%20manos%20de%20banano-purple)
 
