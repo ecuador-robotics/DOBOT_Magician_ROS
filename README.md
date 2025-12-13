@@ -1,10 +1,29 @@
-# DOBOT Magician ROS
-Desarrollar un sistema robótico automatizado que utilice un DOBOT Magician
-para cortar y separar las manos de un racimo de banano orito (racimo pequeño,
-adecuado al tamaño y capacidad del robot). El sistema usará una cámara para
-localizar cada mano mediante visión artificial, y un end effector diseñado
-específicamente para este proyecto, que combine capacidades de corte y
-sujeción para realizar el corte en el punto de unión y depositar cada mano
-cortada en una zona de recolección
+# Sistema de Cosecha Automatizada de Banano Orito
 
-Picon....
+![ROS](https://img.shields.io/badge/ROS-Melodic%2FNoetic-22314E?style=for-the-badge&logo=ros&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![DOBOT](https://img.shields.io/badge/Hardware-DOBOT%20Magician-ff69b4?style=for-the-badge&logo=robot&logoColor=white)
+
+##  Descripción del Proyecto
+
+Este repositorio contiene el desarrollo de un sistema robótico automatizado diseñado para el procesamiento agrícola de precisión. Utilizando un brazo robótico DOBOT Magician, el sistema es capaz de identificar, cortar y separar manos de banano orito (*Musa acuminata AA*) de manera autónoma.
+
+El objetivo principal es realizar la separación del racimo minimizando el daño al producto, utilizando una solución compacta y eficiente.
+
+## Características Principales
+
+* **Visión Artificial:** Implementación de algoritmos de procesamiento de imágenes para localizar espacialmente cada mano de banano y determinar el punto óptimo de corte en el tallo.
+* **End-Effector Híbrido (Diseño Propio):** Desarrollo de una herramienta terminal personalizada que combina mecanismos de **corte y sujeción** simultáneos. Esto permite asegurar la fruta antes del corte para evitar caídas.
+* **Clasificación Automática:** Planificación de trayectorias para depositar cuidadosamente cada mano cortada en una zona de recolección designada.
+
+## Funcionamiento del Sistema
+
+1.  **Detección:** La cámara captura el racimo y el algoritmo calcula las coordenadas de corte.
+2.  **Aproximación:** El DOBOT se mueve a la posición objetivo utilizando cinemática inversa.
+3.  **Ejecución:** El end-effector sujeta la mano de orito y activa el mecanismo de corte.
+4.  **Recolección:** El robot transporta la mano separada a la bandeja de salida.
+
+
+---
+*Christopher Picón*
