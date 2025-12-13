@@ -1,22 +1,28 @@
-<div align="center">
+# Sistema de corte Automatizada de Banano 
 
-# BAC Robot 
-Banana Automatic Cutter Robot
+![ROS](https://img.shields.io/badge/ROS-Melodic%2FNoetic-22314E?style=for-the-badge&logo=ros&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![DOBOT](https://img.shields.io/badge/Hardware-DOBOT%20Magician-ff69b4?style=for-the-badge&logo=robot&logoColor=white)
 
-![Static Badge](https://img.shields.io/badge/misión-Automatizar%20el%20corte%20de%20manos%20de%20banano-purple)
+##  Descripción del Proyecto
 
-![ROS](https://img.shields.io/badge/ROS2-Jazzy-22314E?&logo=ros&logoColor=white)
+Este repositorio contiene el desarrollo de un sistema robótico automatizado diseñado para el procesamiento agrícola de precisión. Utilizando un brazo robótico DOBOT Magician, el sistema es capaz de identificar, cortar y separar manos de banano de manera autónoma.
 
-![GitHub contributors](https://img.shields.io/github/contributors/dvalenciar/DOBOT_Magician_ROS)
-![GitHub last commit](https://img.shields.io/github/last-commit/dvalenciar/DOBOT_Magician_ROS)
-![Top Language](https://img.shields.io/github/languages/top/dvalenciar/DOBOT_Magician_ROS)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+El objetivo principal es realizar la separación del racimo minimizando el daño al producto, utilizando una solución compacta y eficiente.
 
-Un sistema robótico con el objetivo de cortar y separar las manos de un racimo de banano de manera autónoma. 
+## Características Principales
 
-![Static Badge](https://img.shields.io/badge/Nota-Trabajo%20en%20Progreso-orange)
+* **Visión Artificial:** Implementación de algoritmos de procesamiento de imágenes para localizar espacialmente cada mano de banano y determinar el punto óptimo de corte en el tallo.
+* **End-Effector** Desarrollo de una herramienta terminal personalizada que combina mecanismos de corte y sujeción simultáneos. Esto permite asegurar la fruta antes del corte para evitar caídas.
+* **Clasificación Automática:** Planificación de trayectorias para depositar cuidadosamente cada mano cortada en una zona de recolección designada.
 
-</div>
+## Funcionamiento del Sistema
+
+1.  **Detección:** La cámara captura el racimo y el algoritmo calcula las coordenadas de corte.
+2.  **Aproximación:** El DOBOT se mueve a la posición objetivo.
+3.  **Ejecución:** El end-effector sujeta la mano y activa el mecanismo de corte.
+4.  **Recolección:** El robot transporta la mano separada a la bandeja de salida.
 
 
 ---
