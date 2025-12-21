@@ -1,0 +1,27 @@
+{
+    "name": "ROS2 Humble",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [
+        "--network=host",
+        "--privileged",
+        // Mount the X11 socket from the VM so we can see the GUI
+        "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+        // Set the display to the VNC server running on the VM
+        "-e", "DISPLAY=:1"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "sweilz.ros-snippets",
+                "ranch-hand-robotics.rde-ros-2",
+                "ranch-hand-robotics.urdf-editor",
+                "ms-python.python",
+                "ms-vscode.cpptools",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "remoteUser": "root"
+}

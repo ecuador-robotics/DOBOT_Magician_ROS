@@ -24,6 +24,3 @@ El objetivo principal es realizar la separación del racimo minimizando el daño
 3.  **Ejecución:** El end-effector sujeta la mano y activa el mecanismo de corte.
 4.  **Recolección:** El robot transporta la mano separada a la bandeja de salida.
 
-
----
-*Christopher Picón*
