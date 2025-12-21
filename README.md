@@ -1,4 +1,4 @@
-# Sistema de corte Automatizada de Banano 
+# Automated Banana Cutting System
 
 ![ROS](https://img.shields.io/badge/ROS-Melodic%2FNoetic-22314E?style=for-the-badge&logo=ros&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white)
