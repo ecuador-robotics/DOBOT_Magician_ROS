@@ -4,7 +4,7 @@
   <name>myrobot_moveit</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="anthony.chamba.05@gmail.com">r11</maintainer>
+  <maintainer email="anthony.chamba.05@gmail.com">anthony</maintainer> 
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
@@ -13,7 +13,7 @@
   <exec_depend>rviz2</exec_depend>
   <exec_depend>moveit_configs_utils</exec_depend>
   <exec_depend>moveit_ros_move_group</exec_depend>
-  <exec_depend>myrobot_description</exec_depend>
+  <exec_depend>my_robot_description</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

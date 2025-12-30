@@ -156,8 +156,8 @@
     <child link="magician_link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="10.0" 
-           lower="-2.356194490192345" 
-           upper="2.356194490192345" 
+           lower="-2.1816615649929116" 
+           upper="2.1816615649929116" 
            velocity="5.585053606381855"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <dynamics damping="0.7" friction="0.2"/>
