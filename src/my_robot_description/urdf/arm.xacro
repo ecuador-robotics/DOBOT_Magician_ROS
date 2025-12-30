@@ -1,0 +1,227 @@
+<?xml version="1.0" ?>
+<robot name="my_robot" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- Links -->
+  <link name="world"/>
+
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="magician_root_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="magician_root_link"/>
+
+  <link name="magician_base_link">
+    <inertial>
+      <mass value="1.53000000"/>
+      <origin xyz="-0.01325201 -0.00060803 -0.10560785" rpy="0 0 0"/>
+      <inertia ixx="0.00345758" ixy="0.00000824" ixz="0.00000580" 
+               iyy="0.00346069" iyz="-0.00000593" 
+               izz="0.00626691"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianBase.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianBase.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="magician_link_1">
+    <inertial>
+      <mass value="0.61000000"/>
+      <origin xyz="-0.00498192 -0.00028839 -0.03472324" rpy="0 0 0"/>
+      <inertia ixx="0.00175413" ixy="-0.00000005" ixz="0.00000015" 
+               iyy="0.00110468" iyz="-0.00000047"  
+               izz="0.00148888"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink1.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink1.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="magician_link_2">
+    <inertial>
+      <mass value="0.75000000"/>
+      <origin xyz="-0.00351021 0.00011936 0.09094631" rpy="0 0 0"/>
+      <inertia ixx="0.00179849" ixy="0.00000002" ixz="-0.00050507" 
+               iyy="0.00227106" iyz="0.00000007"  
+               izz="0.00068250"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0.3490658503988659 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink2.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 -0.3490658503988659 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink2.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="magician_link_3">
+    <inertial>
+      <mass value="0.41000000"/>
+      <origin xyz="0.11747114 -0.00023256 0.14774548" rpy="0 0 0"/>
+      <inertia ixx="0.00041743" ixy="0.00000006" ixz="0.00039208" 
+               iyy="0.00133728" iyz="-0.00000006"  
+               izz="0.00098588"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 -0.47123889803846897 0" xyz="0.01645236135969491 0 -0.13399373047157848"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink3.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 -0.47123889803846897 0" xyz="0.01645236135969491 0 -0.13399373047157848"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink3.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="magician_link_virtual">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" 
+               iyy="0.00001" iyz="0.0" 
+               izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <link name="magician_link_4">
+    <inertial>
+      <mass value="0.10000000"/>
+      <origin xyz="0.22056904 -0.00049110 0.06336696" rpy="0 0 0"/>
+      <inertia ixx="0.00003209" ixy="0.00000001" ixz="-0.00000873" 
+               iyy="0.00010163" iyz="-0.00000001"  
+               izz="0.00007613"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.17715067840465534 0 -0.058595107267811"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink4.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.17715067840465534 0 -0.058595107267811"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/dae/magicianLink4.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="end_effector">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" 
+               iyy="0.00001" iyz="0.0" 
+               izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <!-- Joints -->
+  
+  <joint name="magician_joint_base" type="fixed">
+    <parent link="magician_root_link"/>
+    <child link="magician_base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.131305"/>
+  </joint>
+
+
+  <joint name="magician_joint_1" type="revolute">
+    <parent link="magician_base_link"/>
+    <child link="magician_link_1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10.0" 
+           lower="-2.356194490192345" 
+           upper="2.356194490192345" 
+           velocity="5.585053606381855"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <dynamics damping="0.7" friction="0.2"/>
+  </joint>
+
+
+  <joint name="magician_joint_2" type="revolute">
+    <parent link="magician_link_1"/>
+    <child link="magician_link_2"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10.0" 
+           lower="0.0" 
+           upper="1.4835298641951802" 
+           velocity="5.585053606381855"/>
+    <origin rpy="0 0.0 0" xyz="0 0 0.0"/>
+    <dynamics damping="1.0" friction="0.3"/>
+  </joint>
+
+
+  <joint name="magician_joint_3" type="revolute">
+    <parent link="magician_link_2"/>
+    <child link="magician_link_3"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10.0" 
+           lower="-0.17453292519943295" 
+           upper="1.6580627893946132" 
+           velocity="5.585053606381855"/>
+    <origin rpy="0 0 0" xyz="0 0.0 0.135"/>
+    <dynamics damping="0.7" friction="0.2"/>
+  </joint>
+
+
+  <joint name="magician_joint_mimic_1" type="revolute">
+    <parent link="magician_link_3"/>
+    <child link="magician_link_virtual"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10.0" 
+           lower="0.0" 
+           upper="6.283185307179586" 
+           velocity="5.585053606381855"/>
+    <origin rpy="0 0 0" xyz="0.147 0 0"/>
+    <dynamics damping="0.3" friction="0.1"/>
+    <mimic joint="magician_joint_2" multiplier="-1" offset="0"/>
+  </joint>
+
+
+  <joint name="magician_joint_mimic_2" type="revolute">
+    <parent link="magician_link_virtual"/>
+    <child link="magician_link_4"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10.0" 
+           lower="0.0" 
+           upper="6.283185307179586" 
+           velocity="5.585053606381855"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <dynamics damping="0.3" friction="0.1"/>
+    <mimic joint="magician_joint_3" multiplier="-1" offset="0"/>
+  </joint>
+
+
+  <joint name="joint_end_effector" type="fixed">
+    <parent link="magician_link_4"/>
+    <child link="end_effector"/>
+    <origin rpy="0 0 0" xyz="0.06 0 0"/>
+  </joint>
+  
+</robot>
