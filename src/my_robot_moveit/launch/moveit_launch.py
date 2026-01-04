@@ -17,7 +17,7 @@ def generate_launch_description():
     )
 
     moveit_config = (
-        MoveItConfigsBuilder("myrobot", package_name="myrobot_moveit")
+        MoveItConfigsBuilder("myrobot", package_name="my_robot_moveit")
         .robot_description(file_path=os.path.join(
             get_package_share_directory("my_robot_description"),
             "urdf",
@@ -41,7 +41,7 @@ def generate_launch_description():
 
     # RViz
     rviz_config = os.path.join(
-        get_package_share_directory("myrobot_moveit"),
+        get_package_share_directory("my_robot_moveit"),
             "config",
             "moveit.rviz",
     )
