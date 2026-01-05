@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<robot name="my_robot" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <ros2_control type="system" name="RobotSystem">
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+
+        <joint name="magician_joint_1">
+            <command_interface name="position">
+                <param name="min">-2.1816615649929116</param>
+                <param name="max">2.1816615649929116</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+
+        <joint name="magician_joint_2">
+            <command_interface name="position">
+                <param name="min">-0.08726646259971647</param>
+                <param name="max">1.5707963267948966</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+
+        <joint name="magician_joint_3">
+            <command_interface name="position">
+                <param name="min">-0.2617993877991494</param>
+                <param name="max">1.2217304763960306</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+
+        <joint name="magician_joint_mimic_1">
+            <state_interface name="position" />
+        </joint>
+
+        <joint name="magician_joint_mimic_2">
+            <state_interface name="position" />
+        </joint>
+
+    </ros2_control>
+    
+</robot>

@@ -17,3 +17,4 @@ log/
 
 # Environment variables
 .env
+.vscode/
