@@ -25,4 +25,9 @@ The main objective is to separate banana hands from bunches while maximizing eff
 3.  **Execution:** End-effector grips and cuts the hand.
 4.  **Collection:** The robot moves the separated hand to the output tray.
 
+## Installation and Setup
+
+Detailed instructions for setting up the environment, dependencies configuration can be found [here](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki) 
+
 Are you insterested in this project or want to contribute? Feel free to reach out! If you find this project helpful, please give us a star ⭐! 
+
