@@ -17,12 +17,6 @@ def generate_launch_description():
 
     is_sim = LaunchConfiguration("is_sim")
 
-    task_server_node = Node(
-        package="my_robot_commander",
-        executable="task_server",
-        parameters=[{"use_sim_time": is_sim}]
-    )
-
     moveit_config = (
         MoveItConfigsBuilder("myrobot", package_name="my_robot_moveit")
         .robot_description(file_path=os.path.join(
@@ -41,9 +35,10 @@ def generate_launch_description():
         package="my_robot_commander",
         executable="task_server",
         parameters=[moveit_config.to_dict(), 
-                    {"use_sim_time": True}],
+                    {"use_sim_time": is_sim}],  
     )
 
     return LaunchDescription([
+        is_sim_arg,  
         task_server_node
     ])
