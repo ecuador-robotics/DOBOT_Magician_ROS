@@ -9,14 +9,15 @@ from moveit.core.robot_state import RobotState
 
 class TaskServer(Node):
     def __init__(self):
-        super().__init__("task_server")
+        super().__init__(node_name="task_server")
         self.get_logger().info("Starting the Server")
+        
         self.action_server = ActionServer(
             self,
             Task,
             "task_server",
-            execute_callback=self.execute_callback,  
-            goal_callback=self.goal_callback,        
+            execute_callback=self.execute_callback,
+            goal_callback=self.goal_callback,
             cancel_callback=self.cancel_callback
         )
 
@@ -86,11 +87,14 @@ class TaskServer(Node):
 
         try:
             self.myrobot.execute(arm_plan_result.trajectory, controllers=[])
+            
             feedback_msg.percentage = 100
             goal_handle.publish_feedback(feedback_msg)
+            
             goal_handle.succeed()
             result.success = True
             self.get_logger().info(f"Task {task_num} completed successfully")
+            
         except Exception as e:
             self.get_logger().error(f"Execution failed: {e}")
             goal_handle.abort()
@@ -102,6 +106,7 @@ class TaskServer(Node):
 def main(args=None):
     rclpy.init(args=args)
     task_server = TaskServer()
+    
     try:
         rclpy.spin(task_server)
     except KeyboardInterrupt:

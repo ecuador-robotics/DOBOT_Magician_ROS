@@ -29,6 +29,7 @@ setup(
         'console_scripts': [
             'simple_moveit_interface = my_robot_commander.simple_moveit_interface:main',
             'task_server = my_robot_commander.task_server:main',
+            'task_client = my_robot_commander.task_client:main',
         ],
     },
 )
