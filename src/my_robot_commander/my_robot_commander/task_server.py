@@ -9,7 +9,7 @@ from moveit.core.robot_state import RobotState
 
 class TaskServer(Node):
     def __init__(self):
-        super().__init__(node_name="task_server")
+        super().__init__("task_server")
         self.get_logger().info("Starting the Server")
         
         self.action_server = ActionServer(
@@ -21,7 +21,7 @@ class TaskServer(Node):
             cancel_callback=self.cancel_callback
         )
 
-        self.myrobot = MoveItPy(node_name="moveit_py")
+        self.myrobot = MoveItPy(node_name="task_server")
         self.myrobot_arm = self.myrobot.get_planning_component("arm")
         
         self.get_logger().info("Task Server Ready")
