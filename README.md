@@ -1,33 +1,134 @@
-# Automated Banana Cutting System
+# DOBOT Magician ROS 2
 
-![ROS](https://img.shields.io/badge/ROS-Jazzy-22314E?style=for-the-badge&logo=ros&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-![DOBOT](https://img.shields.io/badge/Hardware-DOBOT%20Magician-ff69b4?style=for-the-badge&logo=robot&logoColor=white)
+[![ROS 2](https://img.shields.io/badge/ROS_2-Jazzy-22314E?style=for-the-badge&logo=ros&logoColor=white)](https://docs.ros.org/en/jazzy/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![MoveIt 2](https://img.shields.io/badge/MoveIt_2-Motion_Planning-orange?style=for-the-badge)](https://moveit.ros.org/)
+[![Gazebo](https://img.shields.io/badge/Gazebo-Simulation-green?style=for-the-badge)](https://gazebosim.org/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=for-the-badge)](LICENSE)
 
-##  Project Description
+A ROS 2 workspace for controlling the **DOBOT Magician** robotic arm, featuring complete simulation support with Gazebo, motion planning with MoveIt 2, and a task-based action server interface.
 
-This repository implements a robotic system for precision processing of banana bunches. At the moment the project tests feasibility using a DOBOT Magician robotic arm. The final system will autonomously identify, cut, and separate banana hands.
+## Overview
 
-The main objective is to separate banana hands from bunches while maximizing efficiency and minimizing product damage, using an end-effector designed specifically for this task.
+This project provides a full ROS 2 stack for the DOBOT Magician 3-DOF articulated robotic arm, developed as part of research into automated agricultural processing systems. The current implementation focuses on simulation and motion planning infrastructure, with planned extensions for computer vision integration and specialized end-effector control.
 
-## Main Characteristics
+### Key Features
 
-* **Computer Vision:** Implementation of image processing algorithms to spatially locate each banana hand and determine the optimal cutting point on the stem.
-* **End-Effector:** Development of a customized end-effector tool that combines simultaneous cutting and gripping mechanisms. This allows securing the fruit before cutting to prevent drops.
-* **Automatic Classification:** Classify the bunch's hands.
-* **Trajectory Planning**: Trajectory planning to carefully place each separated hand in a collection area.
+- **Complete URDF/Xacro Model** - Accurate kinematic and dynamic model with collision meshes
+- **MoveIt 2 Integration** - Full motion planning pipeline with predefined configurations
+- **Gazebo Simulation** - Physics-based simulation using `ros2_control` and `gz_ros2_control`
+- **Task Action Server** - High-level task execution interface using ROS 2 actions
+- **Multiple End-Effectors** - Support for gripper, suction cup, pen, and custom tools
 
-## System Operation
+## Project Structure
 
-1.  **Detection:** The camera captures the bunch and the algorithm computes cutting coordinates.
-2.  **Approach:** The DOBOT moves to the target position.
-3.  **Execution:** End-effector grips and cuts the hand.
-4.  **Collection:** The robot moves the separated hand to the output tray.
+```
+DOBOT_Magician_ROS/
+└── src/
+    ├── my_robot_description/    # Robot model and visualization
+    ├── my_robot_controller/     # ros2_control configuration
+    ├── my_robot_moveit/         # MoveIt 2 motion planning
+    ├── my_robot_commander/      # Task server and MoveIt interface
+    └── my_robot_msgs/           # Custom action definitions
+```
 
-## Installation and Setup
+### Package Descriptions
 
-Detailed instructions for setting up the environment, dependencies configuration can be found [here](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki) 
+| Package | Description |
+|---------|-------------|
+| **my_robot_description** | URDF/Xacro robot model with 3D meshes (DAE), launch files for RViz visualization and Gazebo simulation |
+| **my_robot_controller** | ROS 2 Control configuration with `JointTrajectoryController` for the 3-joint arm |
+| **my_robot_moveit** | MoveIt 2 configuration including SRDF, kinematics, joint limits, and planning pipelines |
+| **my_robot_commander** | Python-based task server implementing the `Task` action for predefined motion sequences |
+| **my_robot_msgs** | Custom ROS 2 action definition (`Task.action`) for task execution with feedback |
 
-Are you insterested in this project or want to contribute? Feel free to reach out! If you find this project helpful, please give us a star ⭐! 
+### Robot Specifications
 
+| Parameter | Value |
+|-----------|-------|
+| **Degrees of Freedom** | 3 (+ 2 mimic joints for end-effector orientation) |
+| **Joint 1 (Base)** | Revolute, range: -120° to +120° |
+| **Joint 2 (Shoulder)** | Revolute, range: -5° to +90° |
+| **Joint 3 (Elbow)** | Revolute, range: -15° to +90° |
+| **Control Interface** | Position control via `JointTrajectoryController` |
+
+### Predefined Configurations
+
+The MoveIt configuration includes named states for common arm positions:
+
+- `home` - All joints at zero position
+- `extended` - Arm extended forward
+- `upright` - Arm pointing upward
+- `rest` - Compact resting position
+
+## Installation & Usage
+
+For detailed installation instructions, dependencies, and usage guides, see the **[Wiki](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki)**.
+
+### Quick Start
+
+```bash
+# Clone and build
+mkdir dobot && cd dobot
+git clone https://github.com/ecuador-robotics/DOBOT_Magician_ROS.git
+cd DOBOT_Magician_ROS
+colcon build
+source install/setup.bash
+
+# Launch RViz visualization
+ros2 launch my_robot_description display.launch.xml
+
+# Or launch Gazebo simulation
+ros2 launch my_robot_description gazebo.launch.py
+```
+
+> See the [Wiki](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki) for MoveIt integration and Task Server setup (requires multiple terminals)
+
+## Architecture
+
+```
+                    ┌─────────────────────┐
+                    │    Task Client      │
+                    └──────────┬──────────┘
+                               │ Action Goal
+                               ▼
+                    ┌─────────────────────┐
+                    │    Task Server      │
+                    │  (my_robot_commander)│
+                    └──────────┬──────────┘
+                               │ MoveIt Py
+                               ▼
+                    ┌─────────────────────┐
+                    │     MoveIt 2        │
+                    │  Motion Planning    │
+                    └──────────┬──────────┘
+                               │ Trajectory
+                               ▼
+┌──────────────┐    ┌─────────────────────┐    ┌──────────────┐
+│    RViz      │◄───│   ros2_control      │───►│   Gazebo     │
+│ Visualization│    │ JointTrajectory     │    │  Simulation  │
+└──────────────┘    │    Controller       │    └──────────────┘
+                    └─────────────────────┘
+```
+
+## Future Development
+
+This project is part of ongoing research into automated agricultural processing. Planned features include:
+
+- **Computer Vision Integration** - Object detection for identifying cutting points
+- **Custom End-Effector** - Combined gripping and cutting mechanism
+- **Path Optimization** - Collision-aware trajectory planning for complex workspaces
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
+
+For detailed setup instructions and troubleshooting, see the [Wiki](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki).
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+Developed by [Ecuador Robotics](https://github.com/ecuador-robotics)
