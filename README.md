@@ -43,6 +43,8 @@ DOBOT_Magician_ROS/
 | **my_robot_msgs** | Custom ROS 2 action definition (`Task.action`) for task execution with feedback |
 
 ### Robot Specifications
+<<<<<<< HEAD
+=======
 
 | Parameter | Value |
 |-----------|-------|
@@ -132,4 +134,93 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 ## Acknowledgments
 
 Developed by [Ecuador Robotics](https://github.com/ecuador-robotics)
+>>>>>>> 736d84168740f8813ae5d4712b8b26b9090fe246
 
+| Parameter | Value |
+|-----------|-------|
+| **Degrees of Freedom** | 3 (+ 2 mimic joints for end-effector orientation) |
+| **Joint 1 (Base)** | Revolute, range: -120° to +120° |
+| **Joint 2 (Shoulder)** | Revolute, range: -5° to +90° |
+| **Joint 3 (Elbow)** | Revolute, range: -15° to +90° |
+| **Control Interface** | Position control via `JointTrajectoryController` |
+
+### Predefined Configurations
+
+The MoveIt configuration includes named states for common arm positions:
+
+- `home` - All joints at zero position
+- `extended` - Arm extended forward
+- `upright` - Arm pointing upward
+- `rest` - Compact resting position
+
+## Installation & Usage
+
+For detailed installation instructions, dependencies, and usage guides, see the **[Wiki](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki)**.
+
+### Quick Start
+
+```bash
+# Clone and build
+mkdir dobot && cd dobot
+git clone https://github.com/ecuador-robotics/DOBOT_Magician_ROS.git
+cd DOBOT_Magician_ROS
+colcon build
+source install/setup.bash
+
+# Launch RViz visualization
+ros2 launch my_robot_description display.launch.xml
+
+# Or launch Gazebo simulation
+ros2 launch my_robot_description gazebo.launch.py
+```
+
+> See the [Wiki](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki) for MoveIt integration and Task Server setup (requires multiple terminals)
+
+## Architecture
+
+```
+                    ┌─────────────────────┐
+                    │    Task Client      │
+                    └──────────┬──────────┘
+                               │ Action Goal
+                               ▼
+                    ┌─────────────────────┐
+                    │    Task Server      │
+                    │  (my_robot_commander)│
+                    └──────────┬──────────┘
+                               │ MoveIt Py
+                               ▼
+                    ┌─────────────────────┐
+                    │     MoveIt 2        │
+                    │  Motion Planning    │
+                    └──────────┬──────────┘
+                               │ Trajectory
+                               ▼
+┌──────────────┐    ┌─────────────────────┐    ┌──────────────┐
+│    RViz      │◄───│   ros2_control      │───►│   Gazebo     │
+│ Visualization│    │ JointTrajectory     │    │  Simulation  │
+└──────────────┘    │    Controller       │    └──────────────┘
+                    └─────────────────────┘
+```
+
+## Future Development
+
+This project is part of ongoing research into automated agricultural processing. Planned features include:
+
+- **Computer Vision Integration** - Object detection for identifying cutting points
+- **Custom End-Effector** - Combined gripping and cutting mechanism
+- **Path Optimization** - Collision-aware trajectory planning for complex workspaces
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
+
+For detailed setup instructions and troubleshooting, see the [Wiki](https://github.com/ecuador-robotics/DOBOT_Magician_ROS/wiki).
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+Developed by [Ecuador Robotics](https://github.com/ecuador-robotics)
