@@ -17,7 +17,7 @@ def generate_launch_description():
         )
         .robot_description_semantic(file_path="config/myrobot.srdf")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
-        .moveit_cpp(file_path="config/planing_python_api.yaml")
+        .moveit_cpp(file_path="config/planning_python_api.yaml")
         .to_moveit_configs()
     )
 
