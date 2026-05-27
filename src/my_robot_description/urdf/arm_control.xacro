@@ -38,6 +38,30 @@
             <state_interface name="position" />
         </joint>
 
+        <joint name="magician_joint_4">
+            <command_interface name="position">
+            <param name="min">-2.6179938779914944</param>
+            <param name="max">2.6179938779914944</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+        
+        <joint name="magician_joint_prismatic_l">
+            <command_interface name="position">
+            <param name="min">0.0</param>
+            <param name="max">0.0135</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+
+        <joint name="magician_joint_prismatic_r">
+            <command_interface name="position">
+                <param name="min">0.0</param>
+                <param name="max">0.0135</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
     </ros2_control>
     
 </robot>

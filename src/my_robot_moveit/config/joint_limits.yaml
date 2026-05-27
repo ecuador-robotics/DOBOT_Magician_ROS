@@ -1,33 +1,63 @@
-default_velocity_scaling_factor: 0.5  # 50% de velocidad máxima
-default_acceleration_scaling_factor: 0.5  # 50% de aceleración máxima
+default_velocity_scaling_factor: 0.5
+default_acceleration_scaling_factor: 0.5
 
 joint_limits:
-  magician_joint_1:
-    has_position_limits: true
-    min_position: -2.0943951023931953  # -120
-    max_position: 2.0943951023931953   # +120
+  magician_joint_1:           # ← 2 espacios
+    has_position_limits: true  # ← 4 espacios
+    min_position: -2.0943951023931953
+    max_position: 2.0943951023931953
     has_velocity_limits: true
-    max_velocity: 5.585053606381855   # 320°/s
+    max_velocity: 5.585053606381855
     has_acceleration_limits: true
-    max_acceleration: 10.0  
+    max_acceleration: 10.0
     has_jerk_limits: false
-  
+
   magician_joint_2:
     has_position_limits: true
-    min_position: -0.08726646259971647  # -5°
-    max_position: 1.5707963267948966  # 90°
+    min_position: -0.08726646259971647
+    max_position: 1.5707963267948966
     has_velocity_limits: true
-    max_velocity: 5.585053606381855   # 320°/s
+    max_velocity: 5.585053606381855
     has_acceleration_limits: true
     max_acceleration: 10.0
     has_jerk_limits: false
-  
+
   magician_joint_3:
     has_position_limits: true
-    min_position: -0.2617993877991494  # -15°
-    max_position: 1.5707963267948966    # +90°
+    min_position: -0.2617993877991494
+    max_position: 1.5707963267948966
     has_velocity_limits: true
-    max_velocity: 5.585053606381855     # 320°/s
+    max_velocity: 5.585053606381855
     has_acceleration_limits: true
     max_acceleration: 10.0
+    has_jerk_limits: false
+
+  magician_joint_4:
+    has_position_limits: true
+    min_position: -3.0          # <-- Cambia de -2.61799 a -3.0
+    max_position: 3.0           # <-- Cambia de 2.61799 a 3.0
+    has_velocity_limits: true
+    max_velocity: 5.585053606381855
+    has_acceleration_limits: true
+    max_acceleration: 10.0
+    has_jerk_limits: false
+
+  magician_joint_prismatic_l:
+    has_position_limits: true
+    min_position: 0.0
+    max_position: 0.0135
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: true
+    max_acceleration: 5.0
+    has_jerk_limits: false
+
+  magician_joint_prismatic_r:
+    has_position_limits: true
+    min_position: 0.0
+    max_position: 0.0135
+    has_velocity_limits: true
+    max_velocity: 1.0
+    has_acceleration_limits: true
+    max_acceleration: 5.0
     has_jerk_limits: false

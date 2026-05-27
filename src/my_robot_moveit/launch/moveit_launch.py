@@ -17,17 +17,16 @@ def generate_launch_description():
     )
 
     moveit_config = (
-        MoveItConfigsBuilder("myrobot", package_name="my_robot_moveit")
-        .robot_description(file_path=os.path.join(
-            get_package_share_directory("my_robot_description"),
-            "urdf",
-            "arm.urdf.xacro"
-            )
-        )
-        .robot_description_semantic(file_path="config/myrobot.srdf")
-        .trajectory_execution(file_path="config/moveit_controllers.yaml")
-        .to_moveit_configs()
-    )
+    MoveItConfigsBuilder("myrobot", package_name="my_robot_moveit")
+    .robot_description(file_path=os.path.join(
+        get_package_share_directory("my_robot_description"),
+        "urdf", "arm.urdf.xacro"
+    ))
+    .robot_description_semantic(file_path="config/myrobot.srdf")
+    .trajectory_execution(file_path="config/moveit_controllers.yaml")
+    .moveit_cpp(file_path="config/planning_python_api.yaml")  # ← clave
+    .to_moveit_configs()
+)
 
     move_group_node = Node(
         package="moveit_ros_move_group",

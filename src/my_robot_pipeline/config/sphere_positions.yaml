@@ -1,0 +1,17 @@
+spheres:
+  rojo:
+    x: 0.25
+    y: -0.1
+    z: 0.03
+  azul:
+    x: 0.25
+    y: 0.0
+    z: 0.03
+  verde:
+    x: 0.25
+    y: 0.1
+    z: 0.03
+
+pick_offset_z: 0.08    # altura para aproximarse
+place_offset_z: 0.08   # altura para colocar
+grasp_z: 0.02          # altura para agarrar

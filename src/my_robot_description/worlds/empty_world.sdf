@@ -25,6 +25,11 @@
         filename="gz-sim-imu-system"
         name="gz::sim::systems::Imu">
     </plugin>
+    <plugin filename="gz-sim-vacuum-gripper-system" name="gz::sim::systems::VacuumGripper">
+      <parent_link>end_effector</parent_link>
+      <grip_count>3</grip_count>
+      <max_velocity>0.5</max_velocity>
+    </plugin>
     <gravity>0 0 -9.8000000000000007</gravity>
     <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -101,5 +106,157 @@
         <falloff>0</falloff>
       </spot>
     </light>
+
+    <model name='sphere_red'>
+      <pose>0.25 0.06 0.010 0 0 0</pose>
+      <static>false</static> <link name='link'>
+        <inertial>
+          <mass>0.002</mass> <inertia>
+            <ixx>0.00000008</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>0.00000008</iyy>
+            <iyz>0.0</iyz>
+            <izz>0.00000008</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <sphere><radius>0.005</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere><radius>0.005</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name='sphere_blue'>
+      <pose>0.25 0.0 0.010 0 0 0</pose>
+      <static>false</static> <link name='link'>
+        <inertial>
+          <mass>0.002</mass> <inertia>
+            <ixx>0.00000008</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>0.00000008</iyy>
+            <iyz>0.0</iyz>
+            <izz>0.00000008</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <sphere><radius>0.005</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere><radius>0.005</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name='sphere_green'>
+      <pose>0.25 -0.06 0.010 0 0 0</pose>
+      <static>false</static> <link name='link'>
+        <inertial>
+          <mass>0.002</mass> <inertia>
+            <ixx>0.00000008</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>0.00000008</iyy>
+            <iyz>0.0</iyz>
+            <izz>0.00000008</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <sphere><radius>0.005</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere><radius>0.005</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name='calib_marker_1'>
+      <pose>0.35 0.15 0.001 0 0 0</pose> <static>true</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box><size>0.02 0.02 0.002</size></box> </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient> <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='calib_marker_2'>
+      <pose>0.35 -0.15 0.001 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box><size>0.02 0.02 0.002</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='calib_marker_3'>
+      <pose>0.15 -0.15 0.001 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box><size>0.02 0.02 0.002</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='calib_marker_4'>
+      <pose>0.15 0.15 0.001 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box><size>0.02 0.02 0.002</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
   </world>
 </sdf>
