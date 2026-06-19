@@ -227,8 +227,8 @@
     <child link="magician_link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="10.0" 
-           lower="-2.0943951023931953" 
-           upper="2.0943951023931953" 
+           lower="-1.5708" 
+           upper="1.5708" 
            velocity="5.585053606381855"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <dynamics damping="0.7" friction="0.2"/>
@@ -240,8 +240,8 @@
     <child link="magician_link_2"/>
     <axis xyz="0 1 0"/>
     <limit effort="10.0" 
-           lower="-0.08726646259971647" 
-           upper="1.5707963267948966" 
+           lower="0" 
+           upper="1.48353" 
            velocity="5.585053606381855"/>
     <origin rpy="0 0.0 0" xyz="0 0 0.0"/>
     <dynamics damping="1.0" friction="0.3"/>
@@ -253,8 +253,8 @@
     <child link="magician_link_3"/>
     <axis xyz="0 1 0"/>
     <limit effort="10.0" 
-           lower="-0.2617993877991494" 
-           upper="1.5707963267948966" 
+           lower="-0.174533" 
+           upper="1.48353" 
            velocity="5.585053606381855"/>
     <origin rpy="0 0 0" xyz="0 0.0 0.135"/>
     <dynamics damping="0.7" friction="0.2"/>
@@ -293,8 +293,8 @@
     <child link="magician_link_gripper_core"/>
     <axis xyz="0 0 1"/>
     <limit effort="10.0"
-          lower="-2.6179938779914944"
-          upper="2.6179938779914944"
+          lower="-2.35619"
+          upper="2.35619"
           velocity="5.585053606381855"/>
     <origin rpy="0 0 0" xyz="0.06 0 0"/>
     <dynamics damping="0.3" friction="0.1"/>

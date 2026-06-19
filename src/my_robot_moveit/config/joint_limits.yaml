@@ -4,8 +4,8 @@ default_acceleration_scaling_factor: 0.5
 joint_limits:
   magician_joint_1:           # ← 2 espacios
     has_position_limits: true  # ← 4 espacios
-    min_position: -2.0943951023931953
-    max_position: 2.0943951023931953
+    min_position: -1.5708
+    max_position: 1.5708
     has_velocity_limits: true
     max_velocity: 5.585053606381855
     has_acceleration_limits: true
@@ -14,8 +14,8 @@ joint_limits:
 
   magician_joint_2:
     has_position_limits: true
-    min_position: -0.08726646259971647
-    max_position: 1.5707963267948966
+    min_position: 0
+    max_position: 1.48353
     has_velocity_limits: true
     max_velocity: 5.585053606381855
     has_acceleration_limits: true
@@ -24,8 +24,8 @@ joint_limits:
 
   magician_joint_3:
     has_position_limits: true
-    min_position: -0.2617993877991494
-    max_position: 1.5707963267948966
+    min_position: -0.174533
+    max_position: 1.48353
     has_velocity_limits: true
     max_velocity: 5.585053606381855
     has_acceleration_limits: true
@@ -34,8 +34,8 @@ joint_limits:
 
   magician_joint_4:
     has_position_limits: true
-    min_position: -3.0          # <-- Cambia de -2.61799 a -3.0
-    max_position: 3.0           # <-- Cambia de 2.61799 a 3.0
+    min_position: -2.35619
+    max_position: 2.35619
     has_velocity_limits: true
     max_velocity: 5.585053606381855
     has_acceleration_limits: true
